@@ -1,5 +1,8 @@
 # Build
-docker build -t minidlna:latest .
+docker build -t dobrosi/minidlna .
 
 # Run
-docker run --rm minidlna
+docker run --rm -P dobrosi/minidlna
+
+# Push
+docker push dobrosi/minidlna
