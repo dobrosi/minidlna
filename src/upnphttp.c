@@ -934,11 +934,11 @@ ProcessHttpQuery_upnphttp(struct upnphttp * h)
 			}
 		}
 		strncpyt(ip_buf, h->req_Host, MIN(ip_sz + 1, sizeof(ip_buf)));
-		if (ip_sz >= sizeof(ip_buf) || inet_pton(AF_INET, ip_buf, &addr) <= 0 || !addr.s_addr) {
+	/*	if (ip_sz >= sizeof(ip_buf) || inet_pton(AF_INET, ip_buf, &addr) <= 0 || !addr.s_addr) {
 			DPRINTF(E_ERROR, L_HTTP, "DNS rebinding attack suspected (Host: %.*s)\n", h->req_HostLen, h->req_Host);
 			Send400(h);
 			return;
-		}
+		}*/
 	}
 	if(strcmp("POST", HttpCommand) == 0)
 	{
