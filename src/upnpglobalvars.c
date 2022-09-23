@@ -81,6 +81,7 @@ const char * minissdpdsocketpath = "/var/run/minissdpd.sock";
 /* UPnP-A/V [DLNA] */
 sqlite3 *db;
 char friendly_name[FRIENDLYNAME_MAX_LEN];
+const char * icon_path = "";
 char db_path[1024] = {'\0'};
 char log_path[1024] = {'\0'};
 struct media_dir_s * media_dirs = NULL;

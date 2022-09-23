@@ -1480,6 +1480,14 @@ SendResp_icon(struct upnphttp * h, char * icon)
 		Send404(h);
 		return;
 	}
+	if (strlen(icon_path) > 0) {
+		DPRINTF(E_INFO, L_HTTP, "Load from path: %s%s\n", icon_path, icon);
+		FILE * file = fopen(strcat(icon_path, icon), "r+");
+		size = ftell(file);
+		data = (char *) malloc(size);
+		int bytes_read = fread(data, sizeof(char), size, file);
+		fclose(file);
+	}
 
 	INIT_STR(str, header);
 
