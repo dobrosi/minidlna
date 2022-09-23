@@ -8,7 +8,7 @@ WORKDIR /
 RUN git clone https://github.com/dobrosi/minidlna.git /minidlna
 RUN	cd /minidlna/src && \
 	./autogen.sh && ./configure && make && \
-	mkdir /etc/minidlna && mv minidlna.conf /etc/minidlna && mv minidlnad /usr/sbin && \
+	mkdir /etc/minidlna && mv minidlna.conf /etc/minidlna && mv minidlnad /usr/sbin
 #	cd / && rm -rf /minidlna
 
 EXPOSE 8200
