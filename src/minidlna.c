@@ -638,7 +638,7 @@ init(int argc, char **argv)
 			strncpyt(friendly_name, ary_options[i].value, FRIENDLYNAME_MAX_LEN);
 			break;
 		case UPNPICONPATH:
-			icon_path =  = ary_options[i].value;
+			icon_path = ary_options[i].value;
 			break;
 		case UPNPMEDIADIR:
 			types = ALL_MEDIA;
