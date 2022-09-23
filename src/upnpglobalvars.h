@@ -240,6 +240,7 @@ extern const char *minissdpdsocketpath;
 extern sqlite3 *db;
 #define FRIENDLYNAME_MAX_LEN 64
 extern char friendly_name[];
+extern const char * icon_path;
 extern char db_path[1024];
 extern char log_path[1024];
 extern struct media_dir_s *media_dirs;
