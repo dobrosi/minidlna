@@ -1,4 +1,4 @@
-# Minidlna with icon feature.
+# Minidlna with custom icon feature.
 Check conf file for more info about extended feature.
 ```
 # set this directory path if you would like to replace default icon
