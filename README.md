@@ -7,10 +7,16 @@ Check conf file for more info about extended feature.
 ```
 
 ## Build
+```terminal
 docker build -t dobrosi/minidlna .
+```
 
 ## Run
+```terminal
 docker run --rm -P dobrosi/minidlna
+```
 
 ## Push
+```terminal
 docker push dobrosi/minidlna
+```
