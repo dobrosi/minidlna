@@ -37,3 +37,7 @@ CMD [ "sleep", "infinity" ]
 # [Optional] Uncomment this section to install additional OS packages.
 # RUN apt-get update && export DEBIAN_FRONTEND=noninteractive \
 #     && apt-get -y install --no-install-recommends <your-package-list-here>
+
+RUN apt-get update && \
+	apt-get install -y automake autoconf libtool g++ git make gcc cmake && \
+	apt-get install -y gettext autopoint libavutil-dev libavcodec-dev libavformat-dev libjpeg-dev libsqlite3-dev libexif-dev libogg-dev libvorbis-dev libid3tag0-dev libflac-dev
