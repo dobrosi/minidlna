@@ -54,7 +54,7 @@
 #include "log.h"
 
 /* SSDP ip/port */
-#define SSDP_PORT (1900)
+/*#define SSDP_PORT (1900)*/
 #define SSDP_MCAST_ADDR ("239.255.255.250")
 
 static int
@@ -113,7 +113,7 @@ OpenAndConfSSDPReceiveSocket(void)
 #endif
 	memset(&sockname, 0, sizeof(struct sockaddr_in));
 	sockname.sin_family = AF_INET;
-	sockname.sin_port = htons(SSDP_PORT);
+	//sockname.sin_port = htons(SSDP_PORT);
 #ifdef __linux__
 	/* NOTE: Binding a socket to a UDP multicast address means, that we just want
 	 * to receive datagramms send to this multicast address.
@@ -263,7 +263,7 @@ SendSSDPResponse(int s, struct sockaddr_in sockname, int st_no,
 		(st_no > 1 ? "1" : ""),
 		host, (unsigned int)port);
 	DPRINTF(E_DEBUG, L_SSDP, "Sending M-SEARCH response to %s:%d ST: %s\n",
-		inet_ntoa(sockname.sin_addr), ntohs(sockname.sin_port),
+		inet_ntoa(sockname.sin_addr), ntohs(runtime_vars.ssdp_port),
 		known_service_types[st_no]);
 	n = sendto(s, buf, l, 0,
 	           (struct sockaddr *)&sockname, len_r);
@@ -282,7 +282,7 @@ SendSSDPNotifies(int s, const char *host, unsigned short port,
 
 	memset(&sockname, 0, sizeof(struct sockaddr_in));
 	sockname.sin_family = AF_INET;
-	sockname.sin_port = htons(SSDP_PORT);
+//	sockname.sin_port = htons(SSDP_PORT);
 	sockname.sin_addr.s_addr = inet_addr(SSDP_MCAST_ADDR);
 	lifetime = (interval << 1) + 10;
 
@@ -788,7 +788,7 @@ SendSSDPGoodbyes(int s)
 
 	memset(&sockname, 0, sizeof(struct sockaddr_in));
 	sockname.sin_family = AF_INET;
-	sockname.sin_port = htons(SSDP_PORT);
+	sockname.sin_port = htons(runtime_vars.ssdp_port);
 	sockname.sin_addr.s_addr = inet_addr(SSDP_MCAST_ADDR);
 
 	for (dup = 0; dup < 2; dup++)

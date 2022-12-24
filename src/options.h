@@ -37,6 +37,7 @@ enum upnpconfigoptions {
 	UPNP_INVALID = 0,
 	UPNPIFNAME = 1,			/* ext_ifname */
 	UPNPPORT,			/* port */
+	SSDPPORT,			/* SSDP port */
 	UPNPPRESENTATIONURL,		/* presentation_url */
 	UPNPNOTIFY_INTERVAL,		/* notify_interval */
 	UPNPUUID,			/* uuid */

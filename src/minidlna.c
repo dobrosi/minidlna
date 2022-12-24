@@ -579,11 +579,12 @@ init(int argc, char **argv)
 		DPRINTF(E_OFF, L_GENERAL, "No MAC address found.  Falling back to generic UUID.\n");
 		strcpy(mac_str, "554e4b4e4f57");
 	}
-	snprintf(uuidvalue+5, UUIDVALUE_MAX_LEN-5, "4d696e69-444c-164e-9d41-%s", mac_str);
+	snprintf(uuidvalue+5, UUIDVALUE_MAX_LEN-5, "4d696e69-444c-164e-%s-%s", modelnumber , mac_str);
 
 	getfriendlyname(friendly_name, FRIENDLYNAME_MAX_LEN);
 	
 	runtime_vars.port = 8200;
+	runtime_vars.ssdp_port = 1900;
 	runtime_vars.notify_interval = 895;	/* seconds between SSDP announces */
 	runtime_vars.max_connections = 50;
 	runtime_vars.root_container = NULL;
@@ -618,6 +619,9 @@ init(int argc, char **argv)
 			break;
 		case UPNPPORT:
 			runtime_vars.port = atoi(ary_options[i].value);
+			break;
+		case SSDPPORT:
+			runtime_vars.ssdp_port = atoi(ary_options[i].value);
 			break;
 		case UPNPPRESENTATIONURL:
 			presurl = ary_options[i].value;
