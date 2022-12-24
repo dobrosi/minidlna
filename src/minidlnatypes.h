@@ -47,7 +47,6 @@ struct lan_addr_s {
 
 struct runtime_vars_s {
 	int port;	/* HTTP Port */
-	int ssdp_port;	/* HTTP Port */
 	int notify_interval;	/* seconds between SSDP announces */
 	int max_connections;	/* max number of simultaneous conenctions */
 	const char *root_container;	/* root ObjectID (instead of "0") */
