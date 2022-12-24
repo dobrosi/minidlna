@@ -303,7 +303,7 @@ SendSSDPNotifies(int s, const char *host, unsigned short port,
 					"USN:%s%s%s%s\r\n"
 					"NTS:ssdp:alive\r\n"
 					"\r\n",
-					SSDP_MCAST_ADDR, SSDP_PORT,
+					SSDP_MCAST_ADDR, runtime_vars.ssdp_port,
 					lifetime,
 					host, port,
 					known_service_types[i],
@@ -802,7 +802,7 @@ SendSSDPGoodbyes(int s)
 					"USN:%s%s%s%s\r\n"
 					"NTS:ssdp:byebye\r\n"
 					"\r\n",
-					SSDP_MCAST_ADDR, SSDP_PORT,
+					SSDP_MCAST_ADDR, runtime_vars.ssdp_port,
 					known_service_types[i],
 					(i > 1 ? "1" : ""), uuidvalue,
 					(i > 0 ? "::" : ""),
