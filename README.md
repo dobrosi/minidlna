@@ -10,6 +10,7 @@ Check conf file for more info about extended feature.
 ```terminal
 git clone https://github.com/dobrosi/minidlna.git
 cd minidlna
+
 docker build -t dobrosi/minidlna .
 ```
 
