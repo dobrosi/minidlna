@@ -8,10 +8,10 @@ WORKDIR /
 RUN git clone https://github.com/dobrosi/minidlna.git /minidlna
 RUN	cd /minidlna && git pull && cd src && \
 	./autogen.sh && ./configure && make && \
-	mkdir /etc/minidlna && mv minidlna.conf /etc/minidlna && mv minidlnad /usr/sbin
+	mv minidlna.conf /etc && mv minidlnad /usr/sbin
 #	cd / && rm -rf /minidlna
 
 EXPOSE 8200
 EXPOSE 1900/udp
 
-ENTRYPOINT ["minidlnad", "-f", "/etc/minidlna/minidlna.conf", "-S"]
+ENTRYPOINT ["minidlnad", "-f", "/etc/minidlna.conf", "-S"]

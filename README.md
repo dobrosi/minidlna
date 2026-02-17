@@ -16,7 +16,12 @@ docker build -t dobrosi/minidlna .
 
 ## Run
 ```terminal
-docker run --rm -P dobrosi/minidlna
+docker run -d --network host -P --name minidlna dobrosi/minidlna
+```
+
+## Run with volumes
+```terminal
+docker run -d --network host -P --name minidlna -v /home/pi/minidlna/:/home/pi/minidlna -v /etc/minidlna.conf:/etc/minidlna/minidlna.conf dobrosi/minidlna
 ```
 
 ## Push
